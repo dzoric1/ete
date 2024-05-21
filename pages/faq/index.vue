@@ -62,7 +62,7 @@ const helpLinks = [
 	</section>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .faq__title {
 	font-size: 32px;
 	font-weight: 500;

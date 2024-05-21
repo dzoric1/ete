@@ -1,11 +1,11 @@
 <script setup></script>
 
 <template>
-	<div>
-		<AppHeader />
+	<AppHeader />
+	<main>
 		<slot />
-		<AppFooter />
-	</div>
+	</main>
+	<AppFooter />
 </template>
 
 <style lang="scss" scoped></style>
