@@ -31,6 +31,5 @@ export default defineNuxtConfig({
 		// 	mode: 'out-in',
 		// },
 	},
-	modules: ['nuxt-primevue'],
-	primevue: {},
+	modules: [''],
 });
