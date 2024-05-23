@@ -19,7 +19,7 @@ const breadcrumbs = [
 	<section class="faq-more">
 		<div class="container">
 			<BreadCrumbs :list="breadcrumbs" />
-			<h1 class="faq-more__title faq__title">Доставка</h1>
+			<h1 class="faq-more__title">Доставка</h1>
 			<FaqAccordion />
 		</div>
 	</section>
@@ -27,6 +27,12 @@ const breadcrumbs = [
 
 <style lang="scss">
 .faq-more__title {
-	text-align: left;
+	font-size: 32px;
+	font-weight: 500;
+	margin-bottom: 4px;
+
+	@include tablet {
+		font-size: 24px;
+	}
 }
 </style>

@@ -5,7 +5,7 @@ const breadcrumbs = [
 		to: '/',
 	},
 	{
-		title: 'Помощь',
+		title: 'Корзина',
 		to: '/',
 	},
 ];
