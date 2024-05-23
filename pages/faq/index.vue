@@ -68,11 +68,13 @@ const helpLinks = [
 	font-weight: 500;
 	margin-bottom: 24px;
 	text-align: center;
+	line-height: 110%;
 
 	@include tablet {
 		font-size: 24px;
 	}
 }
+
 .faq__blocks {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
@@ -88,6 +90,7 @@ const helpLinks = [
 		grid-template-columns: repeat(2, 1fr);
 	}
 }
+
 .faq__block {
 	flex: 1;
 	width: 100%;
@@ -96,6 +99,7 @@ const helpLinks = [
 		flex: 0 1 25%;
 	}
 }
+
 .faq__link {
 	display: block;
 	border-radius: 12px;
@@ -113,13 +117,16 @@ const helpLinks = [
 		font-size: 16px;
 	}
 }
+
 .faq__help {
 	margin-bottom: 80px;
 }
+
 .faq__help-list {
 	@include flex-center-column;
 	gap: 12px;
 }
+
 .faq__help-list-item {
 	width: 100%;
 }

@@ -1,82 +1,64 @@
 <script setup></script>
+
 <template>
-	<div class="faq-accordion">
-		<Accordion :activeIndex="0" multiple>
-			<AccordionTab header="Как сделать заказ?">
+	<Accordion type="multiple" class="faq-accordion" variant="outline">
+		<AccordionItem value="item-1" class="faq-accordion__item">
+			<AccordionTrigger class="faq-accordion__trigger">
+				Как сделать заказ?
+			</AccordionTrigger>
+			<AccordionContent class="faq-accordion__content">
 				<p>
 					1. Введите свой номер телефона и дождитесь СМС с кодом авторизации. Не
 					повторяйте запрос слишком часто: мы можем отправить всего 4 кода за
 					день
-					<br />
-					2. Код из СМС действителен в течение 5 минут. Пожалуйста, подождите
-					сообщение в течение этого времени, прежде чем отправлять повторный
-					запрос <br />
-					3. Если все попытки исчерпаны (4 смс в день), но вы так и не смогли
-					пройти авторизацию, обратитесь в службу поддержки. Сразу укажите ваш
-					номер телефона в сообщении сотруднику, так мы сможем помочь вам
-					гораздо быстрее
 				</p>
-			</AccordionTab>
-			<AccordionTab header="СМС с кодом авторизации">
 				<p>
 					1. Введите свой номер телефона и дождитесь СМС с кодом авторизации. Не
 					повторяйте запрос слишком часто: мы можем отправить всего 4 кода за
 					день
-					<br />
-					2. Код из СМС действителен в течение 5 минут. Пожалуйста, подождите
-					сообщение в течение этого времени, прежде чем отправлять повторный
-					запрос <br />
-					3. Если все попытки исчерпаны (4 смс в день), но вы так и не смогли
-					пройти авторизацию, обратитесь в службу поддержки. Сразу укажите ваш
-					номер телефона в сообщении сотруднику, так мы сможем помочь вам
-					гораздо быстрее
 				</p>
-			</AccordionTab>
-			<AccordionTab header="Как узнать статус моего заказа?">
+			</AccordionContent>
+		</AccordionItem>
+		<AccordionItem value="item-2" class="faq-accordion__item">
+			<AccordionTrigger class="faq-accordion__trigger">
+				Как сделать заказ?
+			</AccordionTrigger>
+			<AccordionContent class="faq-accordion__content">
 				<p>
 					1. Введите свой номер телефона и дождитесь СМС с кодом авторизации. Не
 					повторяйте запрос слишком часто: мы можем отправить всего 4 кода за
 					день
-					<br />
-					2. Код из СМС действителен в течение 5 минут. Пожалуйста, подождите
-					сообщение в течение этого времени, прежде чем отправлять повторный
-					запрос <br />
-					3. Если все попытки исчерпаны (4 смс в день), но вы так и не смогли
-					пройти авторизацию, обратитесь в службу поддержки. Сразу укажите ваш
-					номер телефона в сообщении сотруднику, так мы сможем помочь вам
-					гораздо быстрее
 				</p>
-			</AccordionTab>
-		</Accordion>
-	</div>
+				<p>
+					1. Введите свой номер телефона и дождитесь СМС с кодом авторизации. Не
+					повторяйте запрос слишком часто: мы можем отправить всего 4 кода за
+					день
+				</p>
+			</AccordionContent>
+		</AccordionItem>
+	</Accordion>
 </template>
 
 <style lang="scss">
 .faq-accordion {
 	max-width: 590px;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
 
-	.p-accordion {
-		color: inherit;
-	}
+.faq-accordion__item {
+	border-bottom: 1px solid #d1d1d1;
+	padding-bottom: 20px;
+}
 
-	.p-accordion-header {
-		font-weight: 500;
-		font-size: 16px;
-		line-height: 120%;
-		border-bottom: 1px solid #d1d1d1;
-	}
-
-	.p-accordion-header-link {
-		display: flex;
-		flex-direction: row-reverse;
-		justify-content: space-between;
-		align-items: center;
-		padding: 20px 0;
-		cursor: pointer;
-
-		svg {
-			transform: rotate(90deg);
-		}
-	}
+.faq-accordion__content {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	font-size: 14px;
+	line-height: 135%;
+	opacity: 0.8;
+	padding-top: 18px;
 }
 </style>

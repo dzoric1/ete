@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
 	devtools: { enabled: false },
-	css: ['~/assets/styles/main.scss'],
+	css: ['~/assets/css/tailwind.css', '~/assets/styles/main.scss'],
 	vite: {
 		css: {
 			preprocessorOptions: {
@@ -31,6 +31,6 @@ export default defineNuxtConfig({
 		// 	mode: 'out-in',
 		// },
 	},
-	modules: ['nuxt-primevue'],
+	modules: ['nuxt-primevue', '@nuxtjs/tailwindcss', 'shadcn-nuxt'],
 	primevue: {},
 });
