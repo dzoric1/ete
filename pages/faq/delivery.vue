@@ -27,12 +27,7 @@ const breadcrumbs = [
 
 <style lang="scss">
 .faq-more__title {
-	font-size: 32px;
-	font-weight: 500;
+	@include headline;
 	margin-bottom: 4px;
-
-	@include tablet {
-		font-size: 24px;
-	}
 }
 </style>

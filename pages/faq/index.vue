@@ -64,15 +64,11 @@ const helpLinks = [
 
 <style lang="scss">
 .faq__title {
-	font-size: 32px;
-	font-weight: 500;
+	@include headline;
 	margin-bottom: 24px;
 	text-align: center;
-
-	@include tablet {
-		font-size: 24px;
-	}
 }
+
 .faq__blocks {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
@@ -88,6 +84,7 @@ const helpLinks = [
 		grid-template-columns: repeat(2, 1fr);
 	}
 }
+
 .faq__block {
 	flex: 1;
 	width: 100%;
@@ -113,6 +110,7 @@ const helpLinks = [
 		font-size: 16px;
 	}
 }
+
 .faq__help {
 	margin-bottom: 80px;
 }
