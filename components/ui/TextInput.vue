@@ -34,6 +34,9 @@ const updateInput = e => {
 </template>
 
 <style lang="scss" scoped>
+.input-wrapper {
+	display: block;
+}
 .input__label {
 	display: block;
 	margin-bottom: 8px;

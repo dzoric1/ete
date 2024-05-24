@@ -1,6 +1,7 @@
 @import './font-face';
 @import './media';
 @import './typography.scss';
+@import './components.scss';
 
 @mixin flex-between {
 	display: flex;
