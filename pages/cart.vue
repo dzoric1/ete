@@ -67,8 +67,7 @@ const breadcrumbs = [
 						</li>
 					</ul>
 				</div>
-				<div class="cart__aside">
-					<h2 class="cart__aside-title">Адрес и время доставки</h2>
+				<UiAsideBlock title="Адрес и время доставки" class="cart__aside">
 					<div class="cart__aside-delivery">
 						<p class="cart__aside-delivery-item">
 							<IconMark />
@@ -82,28 +81,7 @@ const breadcrumbs = [
 							Изменить адрес
 						</NuxtLink>
 					</div>
-					<ul class="cart__aside-description">
-						<li class="cart__aside-description-item">
-							<p class="cart__aside-description-item-name">4 товара</p>
-							<p class="cart__aside-description-item-value">1972 ₽</p>
-						</li>
-						<li class="cart__aside-description-item">
-							<p class="cart__aside-description-item-name">Скидка 11%</p>
-							<p
-								class="cart__aside-description-item-value cart__aside-description-item-value--red"
-							>
-								–46 ₽
-							</p>
-						</li>
-						<li class="cart__aside-description-item">
-							<p class="cart__aside-description-item-name">Доставка</p>
-							<p class="cart__aside-description-item-value">Бесплатно</p>
-						</li>
-						<li class="cart__aside-description-item">
-							<p class="cart__aside-description-item-name">Общий вес</p>
-							<p class="cart__aside-description-item-value">6.678 кг</p>
-						</li>
-					</ul>
+					<UiDescriptionList class="cart__aside-description" />
 					<UiTextInput
 						withButton
 						buttonText="Применить"
@@ -112,16 +90,18 @@ const breadcrumbs = [
 						name="promo"
 						class="cart__aside-input"
 					/>
-					<div class="cart__aside-total">
-						<p class="cart__aside-total-title">Итого</p>
-						<span class="cart__aside-total-count">1928 ₽</span>
-					</div>
+					<UiTotalInfo class="cart__aside-total" :count="1972" />
 					<div class="cart__aside-alert">
 						<IconTruck />
 						1972 ₽ до бесплатной доставки
 					</div>
-					<NuxtLink class="cart__aside-link" to="/">Оформить заказ</NuxtLink>
-				</div>
+					<UiButton
+						class="cart__aside-link"
+						text="Оформить заказ"
+						isLink
+						linkTo="/"
+					/>
+				</UiAsideBlock>
 			</div>
 		</div>
 	</section>
@@ -200,28 +180,10 @@ const breadcrumbs = [
 }
 
 .cart__aside {
-	width: 100%;
-	max-width: 540px;
 	margin: -33px auto 0 auto;
-
-	display: flex;
-	flex-direction: column;
 
 	@include tablet {
 		margin-top: 0;
-	}
-}
-
-.cart__aside-title {
-	font-weight: 500;
-	font-size: 24px;
-	line-height: 135%;
-	margin-bottom: 24px;
-
-	@include tablet {
-		order: 1;
-		font-size: 18px;
-		margin-bottom: 16px;
 	}
 }
 
@@ -263,37 +225,11 @@ const breadcrumbs = [
 }
 
 .cart__aside-description {
-	display: flex;
-	flex-direction: column;
-	gap: 20px;
 	margin-bottom: 20px;
 
 	@include tablet {
-		gap: 8px;
 		margin-bottom: 16px;
 		order: 4;
-	}
-}
-
-.cart__aside-description-item {
-	display: flex;
-	justify-content: space-between;
-	font-size: 16px;
-
-	@include tablet {
-		font-size: 14px;
-	}
-}
-
-.cart__aside-description-item-name {
-	@include tablet {
-		color: $text-thirdly;
-	}
-}
-
-.cart__aside-description-item-value {
-	&--red {
-		color: $accent-red;
 	}
 }
 
@@ -307,29 +243,11 @@ const breadcrumbs = [
 }
 
 .cart__aside-total {
-	display: flex;
-	justify-content: space-between;
-	align-items: flex-end;
 	margin-bottom: 16px;
 
 	@include tablet {
 		order: 3;
 		margin-bottom: 7px;
-	}
-}
-
-.cart__aside-total-title {
-	font-weight: 500;
-	font-size: 18px;
-}
-
-.cart__aside-total-count {
-	font-weight: 500;
-	font-size: 24px;
-	letter-spacing: 0.01em;
-
-	@include tablet {
-		font-size: 20px;
 	}
 }
 
@@ -358,8 +276,6 @@ const breadcrumbs = [
 }
 
 .cart__aside-link {
-	@include button;
-
 	@include tablet {
 		order: 7;
 	}
