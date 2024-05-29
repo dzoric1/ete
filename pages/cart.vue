@@ -35,19 +35,7 @@ const breadcrumbs = [
 					</ul>
 				</div>
 				<UiAsideBlock title="Адрес и время доставки" class="cart__aside">
-					<div class="cart__aside-delivery">
-						<p class="cart__aside-delivery-item">
-							<IconMark />
-							Иркутск, Байкальская, 256
-						</p>
-						<p class="cart__aside-delivery-item">
-							<IconTruck />
-							Доставка сегодня с 16:00 до 21:00
-						</p>
-						<NuxtLink class="cart__aside-delivery-link">
-							Изменить адрес
-						</NuxtLink>
-					</div>
+					<UiDeliveryInfo class="cart__aside-delivery" withLink />
 					<UiDescriptionList class="cart__aside-description" />
 					<UiTextInput
 						withButton
@@ -77,6 +65,16 @@ const breadcrumbs = [
 				isLink
 				linkTo="/"
 			/>
+			<UiFixedControls class="cart__fixed-controls">
+				<UiDeliveryInfo class="cart__fixed-controls-delivery" />
+				<UiTotalInfo :count="1972" class="cart__fixed-controls-total" />
+				<UiTextButton
+					class="cart__fixed-controls-link"
+					text="Оформить заказ"
+					isLink
+					linkTo="/"
+				/>
+			</UiFixedControls>
 		</div>
 	</section>
 </template>
@@ -160,39 +158,11 @@ const breadcrumbs = [
 }
 
 .cart__aside-delivery {
-	display: flex;
-	flex-direction: column;
-	gap: 12px;
 	margin-bottom: 20px;
 
 	@include tablet {
 		order: 2;
-		font-size: 14px;
 		margin-bottom: 40px;
-	}
-}
-
-.cart__aside-delivery-item {
-	display: grid;
-	align-items: center;
-	grid-template-columns: 24px auto;
-	gap: 8px;
-	color: $text-thirdly;
-
-	@include tablet {
-		gap: 2px;
-	}
-}
-
-.cart__aside-delivery-link {
-	font-size: 14px;
-	text-decoration: underline;
-	text-decoration-skip-ink: none;
-	color: $accent-red;
-	margin-top: 8px;
-
-	@include tablet {
-		margin-top: 3px;
 	}
 }
 
@@ -286,6 +256,39 @@ const breadcrumbs = [
 
 	@include tablet {
 		display: block;
+		margin-bottom: 40px;
+	}
+}
+
+.cart__fixed-controls {
+	display: none;
+
+	@include tablet {
+		display: flex;
+	}
+}
+
+.cart__fixed-controls-delivery {
+	@include big-mobile {
+		display: none;
+	}
+}
+
+.cart__fixed-controls-total {
+	gap: 10px;
+	margin-left: auto;
+
+	@include big-mobile {
+		display: none;
+	}
+}
+
+.cart__fixed-controls-link {
+	max-width: max-content;
+
+	@include big-mobile {
+		max-width: 540px;
+		margin: 0 auto;
 	}
 }
 </style>
