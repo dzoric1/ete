@@ -17,7 +17,10 @@ onMounted(() => {
 	const observer = new IntersectionObserver(
 		entries => {
 			const isVisible = entries[0].isIntersecting;
-			fixedControls.value.$el.style.display = isVisible ? 'none' : 'flex';
+			fixedControls.value.$el.classList.toggle(
+				'cart__fixed-controls--visible',
+				!isVisible
+			);
 		},
 		{ rootMargin: '-5% 0px -5% 0px' }
 	);
@@ -280,7 +283,9 @@ onMounted(() => {
 	display: none;
 
 	@include tablet {
-		display: flex;
+		&--visible {
+			display: flex;
+		}
 	}
 }
 
