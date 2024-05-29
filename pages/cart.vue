@@ -70,6 +70,13 @@ const breadcrumbs = [
 					/>
 				</UiAsideBlock>
 			</div>
+			<div class="cart__mock-block">Вам может быть интересно</div>
+			<UiTextButton
+				class="cart__link"
+				text="Оформить заказ"
+				isLink
+				linkTo="/"
+			/>
 		</div>
 	</section>
 </template>
@@ -128,6 +135,7 @@ const breadcrumbs = [
 	display: grid;
 	grid-template-columns: 820fr 320fr;
 	gap: 0 80px;
+	margin-bottom: 80px;
 
 	@include tablet {
 		display: flex;
@@ -236,11 +244,18 @@ const breadcrumbs = [
 	@include tablet {
 		order: 6;
 		gap: 14px;
+		margin-bottom: 0;
 	}
 }
 
 .cart__aside-link {
+	margin: 0 auto;
+
 	@include tablet {
+		display: none;
+		&--mobile {
+			display: block;
+		}
 		order: 7;
 	}
 }
@@ -255,5 +270,22 @@ const breadcrumbs = [
 .cart__list-item {
 	padding-bottom: 24px;
 	border-bottom: 1px solid #ebebeb;
+}
+
+.cart__mock-block {
+	width: 100%;
+	height: 300px;
+	background-color: $accent-blue;
+	margin-bottom: 40px;
+}
+
+.cart__link {
+	max-width: 540px;
+	margin: 0 auto;
+	display: none;
+
+	@include tablet {
+		display: block;
+	}
 }
 </style>

@@ -32,7 +32,6 @@ const helpLinks = [
 	<section class="faq">
 		<div class="container faq__container">
 			<BreadCrumbs :list="breadcrumbs" />
-
 			<h1 class="faq__title">Часто задаваемые вопросы</h1>
 			<ul v-if="blocks" class="faq__blocks">
 				<li v-for="(block, i) in blocks" :key="i" class="faq__block">

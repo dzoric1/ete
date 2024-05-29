@@ -13,7 +13,7 @@ defineProps({
 	<button v-else class="button">{{ text }}</button>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .button {
 	@include button;
 }

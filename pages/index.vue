@@ -11,6 +11,8 @@
 .test-root {
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 	gap: 10px;
+	margin: 50px 0;
 }
 </style>
