@@ -31,5 +31,5 @@ export default defineNuxtConfig({
 		// 	mode: 'out-in',
 		// },
 	},
-	modules: [''],
+	modules: ['nuxt-swiper'],
 });

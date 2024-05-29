@@ -64,7 +64,7 @@ onMounted(() => {
 						class="cart__aside-input"
 					/>
 					<UiTotalInfo class="cart__aside-total" :count="1972" />
-					<div ref="cartAlert" class="cart__aside-alert">
+					<div class="cart__aside-alert">
 						<IconTruck />
 						1972 ₽ до бесплатной доставки
 					</div>
@@ -76,7 +76,7 @@ onMounted(() => {
 					/>
 				</UiAsideBlock>
 			</div>
-			<div ref="testRef" class="cart__mock-block">Вам может быть интересно</div>
+			<UiProductSwiper class="cart__slider" />
 			<UiTextButton
 				class="cart__link"
 				ref="cartLink"
@@ -261,11 +261,14 @@ onMounted(() => {
 	border-bottom: 1px solid #ebebeb;
 }
 
-.cart__mock-block {
-	width: 100%;
-	height: 300px;
-	background-color: $accent-blue;
+.cart__slider {
+	max-width: 820px;
+	margin-left: 0;
 	margin-bottom: 40px;
+
+	@include tablet {
+		max-width: 100%;
+	}
 }
 
 .cart__link {
