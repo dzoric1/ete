@@ -9,6 +9,21 @@ const breadcrumbs = [
 		to: '/',
 	},
 ];
+
+const cartLink = ref(null);
+const fixedControls = ref(null);
+
+onMounted(() => {
+	const observer = new IntersectionObserver(
+		entries => {
+			const isVisible = entries[0].isIntersecting;
+			fixedControls.value.$el.style.display = isVisible ? 'none' : 'flex';
+		},
+		{ rootMargin: '-5% 0px -5% 0px' }
+	);
+
+	observer.observe(cartLink.value.$el);
+});
 </script>
 
 <template>
@@ -46,7 +61,7 @@ const breadcrumbs = [
 						class="cart__aside-input"
 					/>
 					<UiTotalInfo class="cart__aside-total" :count="1972" />
-					<div class="cart__aside-alert">
+					<div ref="cartAlert" class="cart__aside-alert">
 						<IconTruck />
 						1972 ₽ до бесплатной доставки
 					</div>
@@ -58,14 +73,15 @@ const breadcrumbs = [
 					/>
 				</UiAsideBlock>
 			</div>
-			<div class="cart__mock-block">Вам может быть интересно</div>
+			<div ref="testRef" class="cart__mock-block">Вам может быть интересно</div>
 			<UiTextButton
 				class="cart__link"
+				ref="cartLink"
 				text="Оформить заказ"
 				isLink
 				linkTo="/"
 			/>
-			<UiFixedControls class="cart__fixed-controls">
+			<UiFixedControls class="cart__fixed-controls" ref="fixedControls">
 				<UiDeliveryInfo class="cart__fixed-controls-delivery" />
 				<UiTotalInfo :count="1972" class="cart__fixed-controls-total" />
 				<UiTextButton
