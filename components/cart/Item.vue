@@ -23,7 +23,7 @@ const tags = ['заморозка', 'Новинка', 'Хит'];
 			<p class="cart-item__description-text">{{ serving }} · {{ country }}</p>
 		</div>
 		<UiCounter class="cart-item__counter" />
-		<button class="cart__list-item-like">
+		<button class="cart-item__like">
 			<IconLike />
 		</button>
 		<div class="cart-item__price">
@@ -123,7 +123,7 @@ const tags = ['заморозка', 'Новинка', 'Хит'];
 	}
 }
 
-.cart__list-item-like {
+.cart-item__like {
 	height: max-content;
 	align-self: center;
 	display: flex;

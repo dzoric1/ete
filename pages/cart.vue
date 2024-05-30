@@ -76,7 +76,7 @@ onMounted(() => {
 					/>
 				</UiAsideBlock>
 			</div>
-			<UiProductSwiper class="cart__slider" />
+			<UiProductCarousel class="cart__slider" />
 			<UiTextButton
 				class="cart__link"
 				ref="cartLink"

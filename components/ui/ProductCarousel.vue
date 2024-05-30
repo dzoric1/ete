@@ -1,4 +1,6 @@
-<script setup></script>
+<script setup>
+import { testProduct } from '~/testProduct';
+</script>
 
 <template>
 	<Swiper
@@ -11,8 +13,8 @@
 			},
 		}"
 	>
-		<SwiperSlide v-for="slide in 5" :key="slide" class="swiper-slide">
-			<strong>{{ slide }}</strong>
+		<SwiperSlide v-for="(slide, i) in 5" :key="slide" class="swiper-slide">
+			<CatalogItem :product="testProduct" :pagId="i" />
 		</SwiperSlide>
 	</Swiper>
 </template>
