@@ -7,7 +7,9 @@ defineProps({
 <template>
 	<div class="aside">
 		<h2 class="aside__title">{{ title }}</h2>
-		<slot />
+		<div class="aside__body">
+			<slot />
+		</div>
 	</div>
 </template>
 
@@ -26,9 +28,13 @@ defineProps({
 	margin-bottom: 24px;
 
 	@include tablet {
-		order: 1;
 		font-size: 18px;
 		margin-bottom: 16px;
 	}
+}
+
+.aside__body {
+	display: flex;
+	flex-direction: column;
 }
 </style>

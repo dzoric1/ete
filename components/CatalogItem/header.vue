@@ -77,6 +77,7 @@ const onMouseMove = e => {
 		object-fit: cover;
 	}
 }
+
 .catalog__item-header-swiper {
 	width: 100%;
 }

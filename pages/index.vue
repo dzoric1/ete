@@ -4,6 +4,7 @@
 	<div class="test-root">
 		<NuxtLink to="/faq">Часто задаваемые вопросы</NuxtLink>
 		<NuxtLink to="/cart">Корзина</NuxtLink>
+		<NuxtLink to="/order">Оформление заказа</NuxtLink>
 	</div>
 </template>
 
