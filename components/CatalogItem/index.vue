@@ -19,11 +19,7 @@ const props = defineProps({
 				{{ product.weight }} · {{ product.country }}
 			</p>
 			<div class="catalog__item-control">
-				<!-- <PriceComponent
-					:discount-price="product.discountPrice"
-					:price="product.price"
-					:points="product.points"
-				/> -->
+				<CatalogItemPrice :price="product.price" postfix="шт" />
 				<button class="catalog__item-button">
 					<!-- <IconAddToCart /> -->
 				</button>
@@ -77,6 +73,7 @@ const props = defineProps({
 .catalog__item-control {
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 	margin-top: auto;
 }
 
@@ -87,7 +84,7 @@ const props = defineProps({
 	border-radius: 9px;
 	width: 44px;
 	height: 44px;
-	background-color: var(--red);
+	background-color: $accent-red;
 	transition: opacity 0.2s ease;
 
 	&:hover {

@@ -22,12 +22,9 @@ import { testProduct } from '~/testProduct';
 <style lang="scss" scoped>
 .swiper-slide {
 	width: 100%;
-	height: 500px;
-	background-color: $bg-buttons;
 
 	@include big-mobile {
 		max-width: 150px;
-		height: 300px;
 	}
 }
 </style>

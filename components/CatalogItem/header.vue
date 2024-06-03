@@ -110,11 +110,12 @@ const onMouseMove = e => {
 	width: 100%;
 	height: 2px;
 	border-radius: 6px;
-	background-color: #f4f4f4;
+	background-color: #ddd;
 }
 
 .swiper-pagination-bullet-active {
 	background-color: $accent-red;
+	opacity: 0.6;
 }
 
 .mouseZone {
@@ -163,6 +164,6 @@ const onMouseMove = e => {
 	padding: 0 16px;
 	position: absolute;
 	z-index: 5;
-	bottom: 10px;
+	bottom: 16px;
 }
 </style>
