@@ -52,6 +52,11 @@ const updateInput = e => {
 		outline: none;
 		width: 100%;
 		font-size: 16px;
+		&::-webkit-inner-spin-button,
+		&::-webkit-outer-spin-button {
+			appearance: none;
+			margin: 0;
+		}
 	}
 
 	&__button {

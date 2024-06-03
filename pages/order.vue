@@ -50,15 +50,21 @@ const radio = ref(false);
 						class="order__aside-input"
 					/>
 					<UiRadioButton
-						label="Радиокнопка"
+						id="cardRadio"
+						label="Картой на сайте"
 						v-model:checkedValue="radio"
 						name="test"
-					/>
+					>
+						<IconCardPaid />
+					</UiRadioButton>
 					<UiRadioButton
-						label="Радиокнопка"
+						id="cashRadio"
+						label="Картой при получении"
 						v-model:checkedValue="radio"
 						name="test"
-					/>
+					>
+						<IconTerminalPaid />
+					</UiRadioButton>
 					<UiTextButton class="order__aside-link" text="Заказать" linkTo="/" />
 				</UiAsideBlock>
 			</div>
