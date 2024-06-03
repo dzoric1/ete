@@ -55,19 +55,21 @@ onMounted(() => {
 			<h1 class="order__title">Адрес и время доставки</h1>
 			<div class="order__wrapper">
 				<div class="order__body">
-					<UiTabs
-						:tabNames="deliveryTypes"
-						:selectedTab="selectedTab"
-						@changeTab="changeTab"
-					>
-						<div v-if="selectedTab === 'delivery'">
-							Lorem ipsum dolor sit amet.
-						</div>
-						<div v-if="selectedTab === 'pickup'">
-							Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-							Eligendi, id.
-						</div>
-					</UiTabs>
+					<div class="order__delivery-types">
+						<UiTabs
+							:tabNames="deliveryTypes"
+							:selectedTab="selectedTab"
+							@changeTab="changeTab"
+						>
+							<div v-if="selectedTab === 'delivery'">
+								Lorem ipsum dolor sit amet.
+							</div>
+							<div v-if="selectedTab === 'pickup'">
+								Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+								Eligendi, id.
+							</div>
+						</UiTabs>
+					</div>
 				</div>
 				<UiAsideBlock title="Информация о заказе" class="order__aside">
 					<UiDescriptionList class="order__aside-description" />
@@ -149,6 +151,12 @@ onMounted(() => {
 
 .order__body {
 	height: 1000px;
+}
+
+.order__delivery-types {
+	border: 1px solid #d1d1d1;
+	border-radius: 16px;
+	padding: 24px;
 }
 
 .order__aside {
