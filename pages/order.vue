@@ -12,23 +12,23 @@ const breadcrumbs = [
 
 const radio = ref(false);
 
-// const cartLink = ref(null);
-// const fixedControls = ref(null);
+const orderButton = ref(null);
+const fixedControls = ref(null);
 
-// onMounted(() => {
-// 	const observer = new IntersectionObserver(
-// 		entries => {
-// 			const isVisible = entries[0].isIntersecting;
-// 			fixedControls.value.$el.classList.toggle(
-// 				'cart__fixed-controls--visible',
-// 				!isVisible
-// 			);
-// 		},
-// 		{ rootMargin: '-5% 0px -5% 0px' }
-// 	);
+onMounted(() => {
+	const observer = new IntersectionObserver(
+		entries => {
+			const isVisible = entries[0].isIntersecting;
+			fixedControls.value.$el.classList.toggle(
+				'order__fixed-controls--visible',
+				!isVisible
+			);
+		},
+		{ rootMargin: '-5% 0px -5% 0px' }
+	);
 
-// 	observer.observe(cartLink.value.$el);
-// });
+	observer.observe(orderButton.value.$el);
+});
 </script>
 
 <template>
@@ -41,6 +41,31 @@ const radio = ref(false);
 				<UiAsideBlock title="Информация о заказе" class="order__aside">
 					<UiDescriptionList class="order__aside-description" />
 					<UiTotalInfo class="order__aside-total" :count="1972" />
+					<div class="order__aside-paid">
+						<h4 class="order__aside-paid-title">Способ оплаты</h4>
+						<ul class="order__aside-paid-list">
+							<li class="order__aside-paid-item">
+								<UiRadioButton
+									id="cardRadio"
+									label="Картой на сайте"
+									v-model:checkedValue="radio"
+									name="test"
+								>
+									<IconCardPaid />
+								</UiRadioButton>
+							</li>
+							<li class="order__aside-paid-item">
+								<UiRadioButton
+									id="cashRadio"
+									label="Картой при получении"
+									v-model:checkedValue="radio"
+									name="test"
+								>
+									<IconTerminalPaid />
+								</UiRadioButton>
+							</li>
+						</ul>
+					</div>
 					<UiTextInput
 						withButton
 						buttonText="Применить"
@@ -49,23 +74,11 @@ const radio = ref(false);
 						name="promo"
 						class="order__aside-input"
 					/>
-					<UiRadioButton
-						id="cardRadio"
-						label="Картой на сайте"
-						v-model:checkedValue="radio"
-						name="test"
-					>
-						<IconCardPaid />
-					</UiRadioButton>
-					<UiRadioButton
-						id="cashRadio"
-						label="Картой при получении"
-						v-model:checkedValue="radio"
-						name="test"
-					>
-						<IconTerminalPaid />
-					</UiRadioButton>
-					<UiTextButton class="order__aside-link" text="Заказать" linkTo="/" />
+					<UiTextButton
+						class="order__aside-link"
+						text="Заказать"
+						ref="orderButton"
+					/>
 				</UiAsideBlock>
 			</div>
 			<UiFixedControls class="order__fixed-controls" ref="fixedControls">
@@ -101,122 +114,121 @@ const radio = ref(false);
 		flex-direction: column;
 		gap: 40px;
 	}
-
-	@include big-mobile {
-		flex-direction: column-reverse;
-	}
 }
 
 .order__body {
+	height: 1000px;
 }
 
 .order__aside {
 	margin: 0 auto;
+
+	@include tablet {
+		h2 {
+			display: none;
+		}
+	}
 }
 
 .order__aside-description {
 	margin-bottom: 24px;
 
-	// @include tablet {
-	// 	margin-bottom: 16px;
-	// 	order: 4;
-	// }
+	@include tablet {
+		margin-bottom: 20px;
+		order: 4;
+	}
 }
 
 .order__aside-total {
 	margin-bottom: 24px;
 
-	// @include tablet {
-	// 	order: 3;
-	// 	margin-bottom: 7px;
-	// }
+	@include tablet {
+		order: 3;
+		margin-bottom: 7px;
+	}
 }
 
 .order__aside-input {
 	margin-bottom: 24px;
 
-	// @include tablet {
-	// 	order: 4;
-	// 	margin-bottom: 10px;
-	// }
+	@include tablet {
+		order: 2;
+	}
+}
+
+.order__aside-paid {
+	margin-bottom: 24px;
+
+	@include tablet {
+		margin-bottom: 16px;
+		order: 2;
+	}
+}
+
+.order__aside-paid-title {
+	font-weight: 500;
+	font-size: 20px;
+	margin-bottom: 24px;
+}
+
+.order__aside-paid-list {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.order__aside-paid-item {
+	&:not(:last-child) {
+		&::after {
+			display: block;
+			content: '';
+			width: 100%;
+			height: 1px;
+			background-color: #d1d1d1;
+			margin-top: 16px;
+		}
+	}
 }
 
 .order__aside-link {
 	margin: 0 auto;
 
-	// @include tablet {
-	// 	display: none;
-	// 	&--mobile {
-	// 		display: block;
-	// 	}
-	// 	order: 7;
-	// }
+	@include tablet {
+		order: 5;
+	}
 }
 
-// .cart__list {
-// 	display: flex;
-// 	flex-direction: column;
-// 	gap: 24px;
-// 	margin-top: 24px;
-// }
+.order__fixed-controls {
+	display: none;
 
-// .cart__list-item {
-// 	padding-bottom: 24px;
-// 	border-bottom: 1px solid #ebebeb;
-// }
+	@include tablet {
+		&--visible {
+			display: flex;
+		}
+	}
+}
 
-// .cart__slider {
-// 	max-width: 820px;
-// 	margin-left: 0;
-// 	margin-bottom: 40px;
+.order__fixed-controls-delivery {
+	@include big-mobile {
+		display: none;
+	}
+}
 
-// 	@include tablet {
-// 		max-width: 100%;
-// 	}
-// }
+.order__fixed-controls-total {
+	gap: 10px;
+	margin-left: auto;
 
-// .cart__link {
-// 	max-width: 540px;
-// 	margin: 0 auto;
-// 	display: none;
+	@include big-mobile {
+		display: none;
+	}
+}
 
-// 	@include tablet {
-// 		display: block;
-// 		margin-bottom: 40px;
-// 	}
-// }
+.order__fixed-controls-link {
+	max-width: max-content;
 
-// .cart__fixed-controls {
-// 	display: none;
-
-// 	@include tablet {
-// 		&--visible {
-// 			display: flex;
-// 		}
-// 	}
-// }
-
-// .cart__fixed-controls-delivery {
-// 	@include big-mobile {
-// 		display: none;
-// 	}
-// }
-
-// .cart__fixed-controls-total {
-// 	gap: 10px;
-// 	margin-left: auto;
-
-// 	@include big-mobile {
-// 		display: none;
-// 	}
-// }
-
-// .cart__fixed-controls-link {
-// 	max-width: max-content;
-
-// 	@include big-mobile {
-// 		max-width: 540px;
-// 		margin: 0 auto;
-// 	}
-// }
+	@include big-mobile {
+		max-width: 540px;
+		margin: 0 auto;
+	}
+}
 </style>
