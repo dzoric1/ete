@@ -10,6 +10,23 @@ const breadcrumbs = [
 	},
 ];
 
+const deliveryTypes = [
+	{
+		name: 'delivery',
+		label: 'Доставка',
+	},
+	{
+		name: 'pickup',
+		label: 'Самовывоз',
+	},
+];
+
+const selectedTab = ref('delivery');
+
+const changeTab = tabName => {
+	selectedTab.value = tabName;
+};
+
 const radio = ref(false);
 
 const orderButton = ref(null);
@@ -37,7 +54,21 @@ onMounted(() => {
 			<BreadCrumbs :list="breadcrumbs" />
 			<h1 class="order__title">Адрес и время доставки</h1>
 			<div class="order__wrapper">
-				<div class="order__body">ФОРМА</div>
+				<div class="order__body">
+					<UiTabs
+						:tabNames="deliveryTypes"
+						:selectedTab="selectedTab"
+						@changeTab="changeTab"
+					>
+						<div v-if="selectedTab === 'delivery'">
+							Lorem ipsum dolor sit amet.
+						</div>
+						<div v-if="selectedTab === 'pickup'">
+							Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+							Eligendi, id.
+						</div>
+					</UiTabs>
+				</div>
 				<UiAsideBlock title="Информация о заказе" class="order__aside">
 					<UiDescriptionList class="order__aside-description" />
 					<UiTotalInfo class="order__aside-total" :count="1972" />

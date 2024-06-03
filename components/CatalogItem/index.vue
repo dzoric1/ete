@@ -31,13 +31,8 @@ const props = defineProps({
 				<button class="catalog__item-button">
 					<IconCart />
 				</button>
+				<UiCounter />
 			</div>
-			<!-- <WeightCounter
-				v-show="totalWeight"
-				:weight="totalWeight"
-				@increment="() => incrementCartItem(cartItem)"
-				@decrement="() => decrementCartItem(cartItem)"
-			/> -->
 		</div>
 	</div>
 </template>

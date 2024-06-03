@@ -20,5 +20,9 @@ defineProps({
 	&:not(:last-child) {
 		margin-right: 2px;
 	}
+
+	&:last-child {
+		margin-right: 6px;
+	}
 }
 </style>
