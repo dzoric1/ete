@@ -9,14 +9,15 @@ import { testProduct } from '~/testProduct';
 			:modules="[SwiperNavigation]"
 			slides-per-view="auto"
 			:space-between="8"
-			:navigation="{
-				prevEl: '.product-carousel__prev',
-				nextEl: '.product-carousel__next',
-			}"
+			:navigation="false"
 			:breakpoints="{
 				768: {
 					slidesPerView: 3,
 					spaceBetween: 20,
+					navigation: {
+						prevEl: '.product-carousel__prev',
+						nextEl: '.product-carousel__next',
+					},
 				},
 			}"
 		>
