@@ -51,17 +51,9 @@ const onMouseMove = e => {
 			@mouseleave="onMouseLeave"
 		></div>
 		<div :id="`swiper-pagination-${pagId}`" class="swiper-pagination"></div>
-		<!-- <RateComponent
-			v-if="product.rating"
-			:value="product.rating"
-			class="catalog__item-rate"
-		/> -->
 		<button class="catalog__item-like">
 			<IconLike />
 		</button>
-		<!-- <button class="catalog__item-about-button" @click="$emit('aboutClick')">
-			Подробнее
-		</button> -->
 		<UiTags class="catalog__item-tags" :list="product.tags" />
 	</div>
 </template>
@@ -126,12 +118,12 @@ const onMouseMove = e => {
 	z-index: 1;
 }
 
-.catalog__item-rate {
-	position: absolute;
-	z-index: 5;
-	top: 16px;
-	left: 16px;
-}
+// .catalog__item-rate {
+// 	position: absolute;
+// 	z-index: 5;
+// 	top: 16px;
+// 	left: 16px;
+// }
 
 .catalog__item-like {
 	position: absolute;

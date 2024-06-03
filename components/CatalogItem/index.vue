@@ -10,18 +10,26 @@ const props = defineProps({
 
 <template>
 	<div class="catalog__item">
-		<CatalogItemHeader :product="product" :isCollapse="false" :pagId="pagId" />
+		<CatalogItemHeader
+			:product="product"
+			:isCollapse="false"
+			:pagId="pagId"
+			class="swiper-no-swiping"
+		/>
 		<div class="catalog__item-footer">
+			<div class="catalog__item-footer-row">
+				<UiRate :rateCount="22" />
+				<p class="catalog__item-description">
+					{{ product.weight }} г · {{ product.country }}
+				</p>
+			</div>
 			<h3 class="catalog__item-title">
 				{{ product.title }}
 			</h3>
-			<p class="catalog__item-description">
-				{{ product.weight }} · {{ product.country }}
-			</p>
 			<div class="catalog__item-control">
 				<CatalogItemPrice :price="product.price" postfix="шт" />
 				<button class="catalog__item-button">
-					<!-- <IconAddToCart /> -->
+					<IconCart />
 				</button>
 			</div>
 			<!-- <WeightCounter
@@ -59,10 +67,15 @@ const props = defineProps({
 	flex: 1;
 }
 
+.catalog__item-footer-row {
+	@include flex-between;
+}
+
 .catalog__item-title {
 	font-weight: 500;
 	font-size: 15px;
 	margin-bottom: 6px;
+	margin-top: 12px;
 }
 
 .catalog__item-description {
