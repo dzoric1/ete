@@ -1,13 +1,20 @@
-<script setup></script>
+<script setup>
+defineProps({
+	title: String,
+	withLink: Boolean,
+});
+</script>
 
 <template>
 	<div class="delivery-order-info">
 		<div class="delivery-order-info__icon">
-			<IconTruck />
+			<slot />
 		</div>
 		<div class="delivery-order-info__text">
-			<h4 class="delivery-order-info__title">Иркутск, Байкальская, 256</h4>
-			<NuxtLink class="delivery-order-info__link">Изменить адрес</NuxtLink>
+			<h4 class="delivery-order-info__title">{{ title }}</h4>
+			<NuxtLink v-if="withLink" class="delivery-order-info__link">
+				Изменить адрес
+			</NuxtLink>
 		</div>
 	</div>
 </template>

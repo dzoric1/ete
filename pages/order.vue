@@ -21,10 +21,53 @@ const deliveryTypes = [
 	},
 ];
 
-const selectedTab = ref('delivery');
+const deliveryDates = [
+	{
+		name: 'today',
+		label: 'Сегодня',
+		subtitle: '21 октября',
+	},
+	{
+		name: 'tomorrow',
+		label: 'Завтра',
+		subtitle: '22 октября',
+	},
+];
 
-const changeTab = tabName => {
-	selectedTab.value = tabName;
+const todayTimes = [
+	{
+		id: 1,
+		title: 'с 10 до 13',
+	},
+	{
+		id: 2,
+		title: 'с 13 до 17',
+	},
+	{
+		id: 3,
+		title: 'с 16 до 21',
+	},
+];
+
+const tomorrowTimes = [
+	{
+		id: 1,
+		title: 'с 10 до 13',
+	},
+	{
+		id: 2,
+		title: 'с 13 до 17',
+	},
+];
+
+const selectedDeliveryType = ref('delivery');
+const selectedDeliveryDate = ref('today');
+
+const changeDeliveryTypesTab = tabName => {
+	selectedDeliveryType.value = tabName;
+};
+const changeDeliveryDatesTab = tabName => {
+	selectedDeliveryDate.value = tabName;
 };
 
 const radio = ref(false);
@@ -58,11 +101,17 @@ onMounted(() => {
 					<div class="order__delivery-types">
 						<UiTabs
 							:tabNames="deliveryTypes"
-							:selectedTab="selectedTab"
-							@changeTab="changeTab"
+							:selectedTab="selectedDeliveryType"
+							@changeTab="changeDeliveryTypesTab"
 						>
-							<div v-if="selectedTab === 'delivery'">
-								<UiDeliveryOrderInfo class="order__delivery" />
+							<div v-if="selectedDeliveryType === 'delivery'">
+								<UiDeliveryOrderInfo
+									class="order__delivery"
+									withLink
+									title="Иркутск, Байкальская, 256"
+								>
+									<IconTruck />
+								</UiDeliveryOrderInfo>
 								<form class="order__delivery-form">
 									<div class="order__delivery-form-row">
 										<UiTextInput placeholder="Квартира" name="apartment" />
@@ -80,12 +129,32 @@ onMounted(() => {
 									/>
 								</form>
 							</div>
-							<div v-if="selectedTab === 'pickup'">
-								Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-								Eligendi, id.
+							<div v-if="selectedDeliveryType === 'pickup'">
+								<UiDeliveryOrderInfo title="Иркутск, Байкальская, 256">
+									<IconHome />
+								</UiDeliveryOrderInfo>
 							</div>
 						</UiTabs>
 					</div>
+					<h3 class="order__subtitle">
+						{{
+							selectedDeliveryType === 'delivery'
+								? 'Выберите время и дату доставки'
+								: 'Выберите время и дату самовывоза'
+						}}
+					</h3>
+					<UiTabs
+						:tabNames="deliveryDates"
+						:selectedTab="selectedDeliveryDate"
+						@changeTab="changeDeliveryDatesTab"
+					>
+						<div v-if="selectedDeliveryDate === 'today'">
+							<UiTimeList :list="todayTimes" />
+						</div>
+						<div v-if="selectedDeliveryDate === 'tomorrow'">
+							<UiTimeList :list="tomorrowTimes" />
+						</div>
+					</UiTabs>
 				</div>
 				<UiAsideBlock title="Информация о заказе" class="order__aside">
 					<UiDescriptionList class="order__aside-description" />
@@ -173,6 +242,7 @@ onMounted(() => {
 	border: 1px solid #d1d1d1;
 	border-radius: 16px;
 	padding: 24px;
+	margin-bottom: 40px;
 }
 
 .order__delivery {
@@ -191,6 +261,12 @@ onMounted(() => {
 
 .order__delivery-form-checkbox {
 	margin-bottom: 28px;
+}
+
+.order__subtitle {
+	font-size: 18px;
+	line-height: 135%;
+	margin-bottom: 20px;
 }
 
 .order__aside {

@@ -19,7 +19,7 @@ const clickOnTab = tabName => {
 
 <template>
 	<div class="tabs">
-		<ul class="tavg__nav-list">
+		<ul class="tabs__nav-list">
 			<li
 				v-for="tab in tabNames"
 				:key="tab.name"
@@ -46,12 +46,13 @@ const clickOnTab = tabName => {
 	flex-direction: column;
 	gap: 16px;
 }
-.tavg__nav-list {
+.tabs__nav-list {
 	display: flex;
 	gap: 4px;
 	align-items: center;
 	background-color: #f6f7f8;
 	padding: 4px;
+	border-radius: 12px;
 }
 
 .tabs__nav-item {
