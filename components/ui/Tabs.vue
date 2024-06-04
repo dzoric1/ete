@@ -29,7 +29,8 @@ const clickOnTab = tabName => {
 				]"
 				@click="clickOnTab(tab.name)"
 			>
-				{{ tab.label }}
+				{{ tab.title }}
+				<span>{{ tab.subtitle }}</span>
 			</li>
 		</ul>
 		<div class="tabs__content">
@@ -46,6 +47,7 @@ const clickOnTab = tabName => {
 	flex-direction: column;
 	gap: 16px;
 }
+
 .tabs__nav-list {
 	display: flex;
 	gap: 4px;
@@ -60,10 +62,19 @@ const clickOnTab = tabName => {
 	font-size: 16px;
 	text-align: center;
 	width: 100%;
-	padding: 12px;
+	height: 44px;
 	border-radius: 9px;
 	cursor: pointer;
 	transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+	@include flex-all-center;
+	flex-direction: column;
+
+	gap: 4px;
+
+	span {
+		color: $text-thirdly;
+	}
+
 	&:hover {
 		background-color: rgba($bg-main, 0.5);
 	}

@@ -13,23 +13,23 @@ const breadcrumbs = [
 const deliveryTypes = [
 	{
 		name: 'delivery',
-		label: 'Доставка',
+		title: 'Доставка',
 	},
 	{
 		name: 'pickup',
-		label: 'Самовывоз',
+		title: 'Самовывоз',
 	},
 ];
 
 const deliveryDates = [
 	{
 		name: 'today',
-		label: 'Сегодня',
+		title: 'Сегодня',
 		subtitle: '21 октября',
 	},
 	{
 		name: 'tomorrow',
-		label: 'Завтра',
+		title: 'Завтра',
 		subtitle: '22 октября',
 	},
 ];
