@@ -62,7 +62,23 @@ onMounted(() => {
 							@changeTab="changeTab"
 						>
 							<div v-if="selectedTab === 'delivery'">
-								Lorem ipsum dolor sit amet.
+								<UiDeliveryOrderInfo class="order__delivery" />
+								<form class="order__delivery-form">
+									<div class="order__delivery-form-row">
+										<UiTextInput placeholder="Квартира" name="apartment" />
+										<UiTextInput placeholder="Этаж" name="floor" />
+										<UiTextInput placeholder="Подъезд" name="entrance" />
+										<UiTextInput placeholder="Домофон" name="intercom" />
+									</div>
+									<UiCheckBox
+										label="Частный дом"
+										class="order__delivery-form-checkbox"
+									/>
+									<UiTextInput
+										placeholder="Оставьте комментарий к заказу"
+										name="comment"
+									/>
+								</form>
 							</div>
 							<div v-if="selectedTab === 'pickup'">
 								Lorem, ipsum dolor sit amet consectetur adipisicing elit.
@@ -81,7 +97,7 @@ onMounted(() => {
 								<UiRadioButton
 									id="cardRadio"
 									label="Картой на сайте"
-									v-model:checkedValue="radio"
+									v-model:checked="radio"
 									name="test"
 								>
 									<IconCardPaid />
@@ -91,7 +107,7 @@ onMounted(() => {
 								<UiRadioButton
 									id="cashRadio"
 									label="Картой при получении"
-									v-model:checkedValue="radio"
+									v-model:checked="radio"
 									name="test"
 								>
 									<IconTerminalPaid />
@@ -157,6 +173,24 @@ onMounted(() => {
 	border: 1px solid #d1d1d1;
 	border-radius: 16px;
 	padding: 24px;
+}
+
+.order__delivery {
+	margin-bottom: 24px;
+}
+
+.order__delivery-form {
+}
+
+.order__delivery-form-row {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 12px;
+	margin-bottom: 16px;
+}
+
+.order__delivery-form-checkbox {
+	margin-bottom: 28px;
 }
 
 .order__aside {

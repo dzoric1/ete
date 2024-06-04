@@ -33,7 +33,9 @@ const clickOnTab = tabName => {
 			</li>
 		</ul>
 		<div class="tabs__content">
-			<slot />
+			<Transition name="fade" mode="out-in">
+				<slot />
+			</Transition>
 		</div>
 	</div>
 </template>
@@ -72,5 +74,15 @@ const clickOnTab = tabName => {
 			background-color: $bg-main;
 		}
 	}
+}
+
+.fade-enter-active,
+.fade-leave-active {
+	transition: opacity 0.2s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+	opacity: 0;
 }
 </style>

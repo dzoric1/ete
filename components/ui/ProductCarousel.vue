@@ -62,6 +62,10 @@ import { testProduct } from '~/testProduct';
 			fill: $text-primary;
 		}
 	}
+
+	@include big-mobile {
+		display: none;
+	}
 }
 
 .product-carousel__prev {

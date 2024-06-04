@@ -1,4 +1,5 @@
 <script setup>
+const emits = defineEmits(['update:checkedValue']);
 const props = defineProps({
 	name: {
 		type: String,

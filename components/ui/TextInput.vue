@@ -1,4 +1,5 @@
 <script setup>
+const emits = defineEmits(['update:checkedValue']);
 defineProps({
 	buttonText: String,
 	label: String,
@@ -14,7 +15,7 @@ defineProps({
 });
 
 const updateInput = e => {
-	emit('update:value', e.target.value);
+	emits('update:value', e.target.value);
 };
 </script>
 
