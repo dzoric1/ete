@@ -25,6 +25,7 @@ const activeTime = ref(1);
 	flex-wrap: wrap;
 	gap: 12px;
 }
+
 .time-list__item {
 	width: 100%;
 	max-width: 170px;

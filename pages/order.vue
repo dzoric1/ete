@@ -147,6 +147,7 @@ onMounted(() => {
 						:tabNames="deliveryDates"
 						:selectedTab="selectedDeliveryDate"
 						@changeTab="changeDeliveryDatesTab"
+						class="order__delivery-dates"
 					>
 						<div v-if="selectedDeliveryDate === 'today'">
 							<UiTimeList :list="todayTimes" />
@@ -155,6 +156,25 @@ onMounted(() => {
 							<UiTimeList :list="tomorrowTimes" />
 						</div>
 					</UiTabs>
+					<div class="order__contacts">
+						<h3 class="order__contacts-title">Контактные данные</h3>
+						<div class="order__contacts-wrapper">
+							<UiTextInput placeholder="Имя" name="name" />
+							<UiTextInput placeholder="Фамилия" name="surname" />
+							<UiTextInput
+								placeholder="Номер телефона"
+								name="phone"
+								type="tel"
+							/>
+							<UiSelect
+								:options="[
+									'Перезвонить мне',
+									'Написать в Telegram',
+									'Написать в WhatsApp',
+								]"
+							/>
+						</div>
+					</div>
 				</div>
 				<UiAsideBlock title="Информация о заказе" class="order__aside">
 					<UiDescriptionList class="order__aside-description" />
@@ -267,6 +287,10 @@ onMounted(() => {
 	font-size: 18px;
 	line-height: 135%;
 	margin-bottom: 20px;
+}
+
+.order__delivery-dates {
+	margin-bottom: 40px;
 }
 
 .order__aside {
