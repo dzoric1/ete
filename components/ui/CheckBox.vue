@@ -64,6 +64,10 @@ const handleClick = event => {
 			background-color: rgba(#aeaeae, 0.3);
 		}
 	}
+
+	@include big-mobile {
+		font-size: 14px;
+	}
 }
 
 .checkbox__icon {

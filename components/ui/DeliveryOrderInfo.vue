@@ -25,10 +25,12 @@ defineProps({
 	align-items: center;
 	gap: 12px;
 }
+
 .delivery-order-info__icon {
 	background-color: #f6f7f8;
 	padding: 16px 11px;
 	border-radius: 9px;
+	@include flex-all-center;
 	svg {
 		width: 40px;
 		height: 25px;
@@ -36,16 +38,30 @@ defineProps({
 			fill: $accent-red;
 		}
 	}
+
+	@include big-mobile {
+		svg {
+			width: 29px;
+			height: 19px;
+		}
+	}
 }
+
 .delivery-order-info__text {
 	display: flex;
 	flex-direction: column;
 	gap: 12px;
 }
+
 .delivery-order-info__title {
 	font-weight: 500;
 	font-size: 20px;
+
+	@include big-mobile {
+		font-size: 16px;
+	}
 }
+
 .delivery-order-info__link {
 	font-size: 14px;
 	line-height: 120%;

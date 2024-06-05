@@ -52,6 +52,10 @@ let selectedValue = ref(props.options[0]);
 	font-size: 16px;
 	border-radius: 10px;
 	border: 1px solid #d1d1d1;
+
+	@include big-mobile {
+		font-size: 14px;
+	}
 }
 
 .select__selected {
@@ -75,7 +79,7 @@ let selectedValue = ref(props.options[0]);
 
 .select__menu {
 	position: absolute;
-	top: 100%;
+	top: calc(100% + 5px);
 	left: 0;
 	right: 0;
 	z-index: 1;
@@ -84,6 +88,7 @@ let selectedValue = ref(props.options[0]);
 	visibility: hidden;
 	opacity: 0;
 	transition: opacity 0.3s ease, visibility 0.1s ease;
+	background-color: $bg-main;
 
 	&--open {
 		visibility: visible;

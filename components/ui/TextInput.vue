@@ -58,6 +58,10 @@ const updateInput = e => {
 			appearance: none;
 			margin: 0;
 		}
+
+		@include big-mobile {
+			font-size: 14px;
+		}
 	}
 
 	&__button {

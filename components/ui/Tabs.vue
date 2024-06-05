@@ -68,7 +68,6 @@ const clickOnTab = tabName => {
 	transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 	@include flex-all-center;
 	flex-direction: column;
-
 	gap: 4px;
 
 	span {
@@ -84,6 +83,15 @@ const clickOnTab = tabName => {
 		color: $accent-red;
 		&:hover {
 			background-color: $bg-main;
+		}
+	}
+
+	@include big-mobile {
+		height: 41px;
+		font-size: 14px;
+
+		span {
+			font-size: 12px;
 		}
 	}
 }

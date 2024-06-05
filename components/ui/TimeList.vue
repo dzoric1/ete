@@ -24,6 +24,10 @@ const activeTime = ref(1);
 	display: flex;
 	flex-wrap: wrap;
 	gap: 12px;
+
+	@include big-mobile {
+		gap: 8px;
+	}
 }
 
 .time-list__item {
@@ -39,6 +43,11 @@ const activeTime = ref(1);
 	&--active {
 		color: $accent-red;
 		background-color: rgba($accent-red, 0.06);
+	}
+
+	@include big-mobile {
+		font-size: 14px;
+		max-width: 109px;
 	}
 }
 </style>

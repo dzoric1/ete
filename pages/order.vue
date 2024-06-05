@@ -238,13 +238,18 @@ onMounted(() => {
 	font-size: 32px;
 	line-height: 110%;
 	margin-bottom: 28px;
+
+	@include big-mobile {
+		font-size: 18px;
+		margin-bottom: 20px;
+	}
 }
 
 .order__wrapper {
 	width: 100%;
 	display: grid;
 	grid-template-columns: 820fr 320fr;
-	gap: 0 80px;
+	gap: 0 60px;
 	margin-bottom: 80px;
 
 	@include tablet {
@@ -252,10 +257,10 @@ onMounted(() => {
 		flex-direction: column;
 		gap: 40px;
 	}
-}
 
-.order__body {
-	height: 1000px;
+	@include big-mobile {
+		gap: 32px;
+	}
 }
 
 .order__delivery-types {
@@ -263,10 +268,20 @@ onMounted(() => {
 	border-radius: 16px;
 	padding: 24px;
 	margin-bottom: 40px;
+
+	@include big-mobile {
+		padding: 16px 10px;
+		border-radius: 12px;
+		margin-bottom: 32px;
+	}
 }
 
 .order__delivery {
 	margin-bottom: 24px;
+
+	@include big-mobile {
+		margin-bottom: 16px;
+	}
 }
 
 .order__delivery-form {
@@ -277,20 +292,71 @@ onMounted(() => {
 	grid-template-columns: repeat(4, 1fr);
 	gap: 12px;
 	margin-bottom: 16px;
+
+	@include big-mobile {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 8px;
+	}
 }
 
 .order__delivery-form-checkbox {
 	margin-bottom: 28px;
+
+	@include big-mobile {
+		margin-bottom: 16px;
+	}
 }
 
 .order__subtitle {
 	font-size: 18px;
 	line-height: 135%;
 	margin-bottom: 20px;
+
+	@include big-mobile {
+		font-size: 16px;
+		line-height: 120%;
+		margin-bottom: 16px;
+	}
 }
 
 .order__delivery-dates {
 	margin-bottom: 40px;
+
+	@include big-mobile {
+		margin-bottom: 32px;
+	}
+}
+
+.order__contacts {
+	border: 1px solid #d1d1d1;
+	border-radius: 16px;
+	padding: 24px;
+
+	@include big-mobile {
+		padding: 16px 10px;
+	}
+}
+
+.order__contacts-title {
+	font-weight: 500;
+	font-size: 24px;
+	margin-bottom: 24px;
+
+	@include big-mobile {
+		font-size: 18px;
+		margin-bottom: 16px;
+	}
+}
+
+.order__contacts-wrapper {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 12px;
+
+	@include big-mobile {
+		grid-template-columns: repeat(1, 1fr);
+		gap: 8px;
+	}
 }
 
 .order__aside {
